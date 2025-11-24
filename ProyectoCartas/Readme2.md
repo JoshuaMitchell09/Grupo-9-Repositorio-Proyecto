@@ -1,7 +1,9 @@
-📘 README – Juego de Cartas (Versión Consola)
-👤 Autor
+🃏 Proyecto de Juego de Cartas – Avance II
 
-Joshua Mitchell
+👥 Integrante
+Nombre: Joshua Mitchell
+Carné: (FH22012006)
+
 Curso: Programación
 IDE recomendado: VS Code o IntelliJ IDEA
 
