@@ -1,7 +1,7 @@
 🃏 Proyecto de Juego de Cartas – Avance II
 
-👥 Integrante
-Nombre: Joshua Mitchell
+👥 Integrantes
+Nombre: Joshua Mitchell , Alexis 
 Carné: (FH22012006)
 
 Curso: Programación
