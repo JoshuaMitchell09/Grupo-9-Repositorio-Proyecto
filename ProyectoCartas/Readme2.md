@@ -1,43 +1,68 @@
 🃏 Proyecto de Juego de Cartas – Avance II
-
 👥 Integrantes
-Nombre: Joshua Mitchell , Alexis Jose Sandi 
-Carné: (FH22012006)
 
-Curso: Programación
-IDE recomendado: VS Code o IntelliJ IDEA
+Joshua Mitchell – Carné: FH22012006
+
+Alexis José Sandí – Carné: (pendiente si deseas agregarlo)
+
+📚 Curso
+
+Programación I
+
+💻 Editores / IDEs Utilizados
+
+Visual Studio Code
+
+IntelliJ IDEA Community Edition
+
+Notepad++ (uso secundario para revisión rápida de archivos)
 
 📌 Descripción General del Proyecto
 
-Este proyecto implementa un juego de cartas por consola, donde el jugador interactúa con:
+Este proyecto implementa un juego de cartas por consola desarrollado en Java, con una arquitectura modular que separa claramente:
 
-Mazo (baraja de cartas)
+Mazo (baraja)
 
-Pozo (cartas descartadas o acumuladas)
+Pozo (cartas descartadas)
 
 Mano del jugador
 
-Motor del juego (JuegoEngine) para evaluar sándwiches
+Entidades Carta
 
-Cartas con valor y palo
+Motor del juego (JuegoEngine) encargado de analizar combinaciones
 
-El juego permite:
+Interfaz por consola (MainCLI)
+
+El objetivo del programa es permitir al usuario interactuar con un sistema de cartas donde puede:
 
 ✔ Robar cartas
-✔ Evaluar si existe un “sándwich” válido en la mano
-✔ Mostrar cartas por consola
-✔ Ejecutarse 100% desde terminal
-✔ Lógica modular y separada
+✔ Ver su mano
+✔ Evaluar si tiene un sándwich
+✔ Descartar cartas al pozo
+✔ Ejecutar acciones de manera secuencial por menú
+✔ Procesar combinaciones de forma automática
 
-🃏 ¿Qué es un “Sándwich”?
+🥪 ¿Qué es un Sándwich en el Juego?
 
-Un sándwich es una combinación válida de 3 cartas, según estas reglas:
+Un sándwich es una combinación válida de tres cartas, bajo cualquiera de estas reglas:
 
-Tres valores consecutivos
-Ejemplo: 4, 5, 6
+1️⃣ Tres valores consecutivos
 
-Tres cartas del mismo valor
-Ejemplo: 8, 8, 8
+Ejemplo:
+
+4, 5, 6
+
+9, 10, 11
+
+2️⃣ Tres cartas del mismo valor
+
+Ejemplo:
+
+7, 7, 7
+
+3, 3, 3
+
+El motor del juego (JuegoEngine) se encarga de verificar estas reglas.
 
 📂 Estructura del Proyecto
 /src
@@ -49,101 +74,169 @@ Ejemplo: 8, 8, 8
  ├── JuegoEngineImpl.java
  ├── MainCLI.java
 
-▶️ Cómo Ejecutarlo
 
-Ubícate en la carpeta donde tengas los .java:
+Cada archivo cumple un rol específico dentro de la lógica del juego.
 
-cd C:\Users\joshu\OneDrive\Desktop\Proyecto programacion
-
-
-Compila todos los archivos:
-
-javac *.java
-
-
-Ejecuta el juego:
-
-java MainCLI
-
-⚙️ Lógica del Juego (resumen técnico pero entendible)
+⚙️ Descripción Técnica Completa
 1. Carta.java
 
-Define una carta con:
+Representa una carta con:
 
 valor (int)
 
 palo (String)
+Incluye métodos:
 
-Incluye getters y toString().
+getters
+
+toString()
 
 2. Mazo.java
 
-Crea la baraja completa
+Gestiona la baraja de cartas:
 
-Permite mezclar
+Crea el mazo completo
 
-Permite sacar cartas (sacar())
+Permite mezclar las cartas
+
+Permite robar una carta (sacar())
 
 3. Mano.java
 
-Contiene las cartas del jugador
+Representa la mano del jugador:
 
-Ordena cartas para mostrarlas
+Usa una lista de cartas
 
-Permite agregar o eliminar cartas
+Puede ordenar las cartas
+
+Puede agregar o eliminar cartas
+
+Permite retornar las cartas actuales
 
 4. Pozo.java
 
-Recibe cartas descartadas
+Estructura que almacena las cartas descartadas:
 
-Funciona como acumulador
+Método agregar(carta)
 
-5. JuegoEngineImpl.java
+Se comporta como acumulador
 
-Define toda la lógica:
+5. JuegoEngine.java / JuegoEngineImpl.java
 
-Determinar si existe un sándwich
+Motor del juego:
 
-Evaluar combinaciones y devolver índices
+Verifica si la mano tiene un sándwich
 
-Reglas completas del juego
+Evalúa permutaciones posibles
+
+Revisa combinaciones válidas
+
+Devuelve índices para jugadas correctas
 
 6. MainCLI.java
 
-Interfaz por consola donde el usuario puede:
+Interfaz por consola que permite al usuario:
 
 Robar cartas
 
-Ver su mano
+Ver la mano
 
-Ver si tiene sándwich
+Ver si tiene un sándwich
 
-Simular jugadas
+Simular jugadas automáticas
 
-Salir del juego
+Descartar al pozo
 
-🧪 Ejemplo de Uso
+Salir del sistema
+
+Ejemplo menú:
+
+1. Robar carta
+2. Ver mano
+3. Evaluar sándwich
+4. Salir
+
+📥 Instructivo Completo
+🔧 1. Instalación
+
+Instala Java JDK 17 o superior
+Descargar desde: https://www.oracle.com/java/technologies/javase-downloads.html
+
+Asegúrate de que el comando java y javac funcionan en tu terminal:
+
+java -version
+javac -version
+
+
+Descarga o copia los archivos .java en una misma carpeta, por ejemplo:
+
+C:\Users\joshu\OneDrive\Desktop\Proyecto programacion
+
+🛠 2. Compilación
+
+Abre la terminal dentro del folder donde están los .java:
+
+cd C:\Users\joshu\OneDrive\Desktop\Proyecto programacion
+
+
+Compila todo:
+
+javac *.java
+
+
+Si todo está correcto, no aparecerán errores.
+
+▶️ 3. Ejecución del Juego
+
+Una vez compilado, ejecuta:
+
+java MainCLI
+
+
+Aparecerá el menú principal del juego.
+
+🧪 Ejemplo de Funcionamiento
 1. Robar carta
 2. Ver mano
 3. Evaluar sándwich
 4. Salir
 Seleccione una opción: 1
+
 Robaste: 5 CORAZONES
 
 🌐 Bibliografía / Recursos Utilizados
 
-Estos recursos fueron consultados durante el desarrollo:
+Documentación oficial de Java
+https://docs.oracle.com/javase/
 
-Documentación oficial de Java: https://docs.oracle.com/javase/
+GeeksForGeeks – Estructuras de datos
+https://geeksforgeeks.org
 
-GeeksForGeeks — Estructuras de Datos: https://geeksforgeeks.org
+StackOverflow
+Consultado para problemas de bucles, sort y sintaxis
 
-StackOverflow — dudas puntuales de sintaxis Java
-
-Preguntas y respuestas generadas en ChatGPT (incluidas durante el desarrollo)
+Prompts y respuestas generadas por ChatGPT durante el desarrollo
 
 ✔️ Notas Finales
 
-Este proyecto está diseñado para ser simple, entendible y funcional en consola.
+Este proyecto fue diseñado para cumplir los requerimientos del curso, mostrando:
 
-Puedes extenderlo agregando turnos, jugadores múltiples o reglas adicionales.
+Lógica clara
+
+Modularidad
+
+Buenas prácticas básicas
+
+Ejecución 100% en consola
+
+Código organizado y fácil de leer
+
+Puede expandirse en el futuro con:
+
+GUI en Swing
+
+Persistencia en archivos
+
+Múltiples jugadores
+
+Animaciones o sonidos en la interfaz
