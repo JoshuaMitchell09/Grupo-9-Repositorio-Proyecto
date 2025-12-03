@@ -6,8 +6,8 @@
 ---
 
 ## 👥 Integrantes del Grupo
-- **Nombre del estudiante 1** – Carné: XXXXXXX – GitHub: @usuario – Email: correo@example.com  
-- **Nombre del estudiante 2 (si aplica)** – Carné: XXXXXXX – GitHub: @usuario – Email: correo@example.com  
+- **Joshua Mitchell Navarro** – Carné: FH22012006 – GitHub: @usuario – Email: jmitchell20098@ufide.ac.cr 
+- **Jose Alexis Guillen Sandi** 
 
 > *Los integrantes listados aquí serán los únicos considerados para la calificación, según la rúbrica del curso.*
 
