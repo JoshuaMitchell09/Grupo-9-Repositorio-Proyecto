@@ -110,3 +110,107 @@ Navegar al folder del proyecto:
 ```bash
 cd "C:\Users\TU_USUARIO\Desktop\Proyecto Programacion"
 
+Compilar:
+
+javac *.java
+
+▶️ Ejecución
+
+Ejecutar:
+
+java Main
+
+
+La ventana gráfica de The Sandwich Guy se abrirá automáticamente.
+
+💾 Guardar y Cargar Partidas (XML)
+
+El juego permite:
+
+Guardar el estado actual (Caja, Mazo, Mano, Pozo, Estado) en un archivo .xml
+
+Cargar un archivo previamente guardado
+
+Continuar la partida si no está finalizada
+
+Mostrar si el archivo cargado pertenece a una partida ganada o perdida
+
+Los archivos XML se crean usando las clases estándar del módulo java.xml.
+
+🧠 Lógica Principal del Juego
+✔ Reglas de Sándwich
+
+Una tripleta es válida si:
+
+La carta central está exactamente “a la misma distancia circular” entre las otras dos.
+Ejemplo:
+
+4 – 6 – 8   (distancia 2)
+Q – A – 2   (K↔A vuelta → distancia circular correcta)
+8 – 8 – 8   (distancia 0)
+
+✔ Cartas a tomar del mazo:
+
+4 → mismo palo
+
+3 → mismo color
+
+2 → distinto color
+
+0 → NO es sándwich válido
+
+🧪 Validación de la Mano
+
+El botón Validar Mano revisa TODAS las combinaciones posibles de 3 cartas:
+
+Si existe al menos un sándwich → la partida continúa
+
+Si NO existe → la partida se marca como PERDIDA
+
+🏆 Condiciones de finalización
+
+Victoria: el mazo queda vacío
+
+Derrota: no hay sándwich posible
+
+El estado se muestra en la interfaz gráfica
+
+📚 Referencias
+
+Documentación oficial de Java 21
+https://docs.oracle.com/en/java/javase/21/
+
+API de Java Swing
+https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html
+
+Java ArrayDeque y colecciones
+https://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html
+
+DocumentBuilder / DOM Parser (XML)
+https://docs.oracle.com/javase/tutorial/jaxp/dom/
+
+🤖 Prompts de IA utilizados
+
+Generación de interfaz gráfica con Swing
+
+Persistencia con XML y DOM
+
+
+✔ Estado Final del Proyecto
+
+Este proyecto cumple con:
+
+Todos los componentes funcionales
+
+Todas las estructuras de datos requeridas
+
+Todas las funcionalidades solicitadas
+
+Guardado y carga en XML
+
+Interfaz gráfica completa
+
+Reglas del juego correctamente implementadas
+
+Presentación profesional y lista para evaluación
+
