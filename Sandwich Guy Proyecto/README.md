@@ -70,4 +70,43 @@ No se utilizan dependencias externas.
 ---
 
 ## 📂 Estructura del Proyecto
+Proyecto/
+│ Main.java
+│ VentanaPrincipal.java
+│ Juego.java
+│ Carta.java
+│ Palo.java
+│ Valor.java
+│ Caja.java
+│ Mazo.java
+│ Mano.java
+│ Pozo.java
+│ SandwichEvaluator.java
+│ ResultadoPermutacion.java
+│ NodoTripleta.java
+│ ArbolTripletas.java
+│ PersistenciaXML.java
+│ README.md
+
+
+No se utilizan packages para facilitar la ejecución desde terminal.
+
+---
+
+## ⚙️ Instalación
+
+1. Instalar **Java JDK 21** desde Oracle u OpenJDK.  
+2. Clonar o descargar este repositorio.  
+3. Colocar todos los archivos `.java` dentro de la misma carpeta.
+
+---
+
+## 🔧 Compilación
+
+### 🔹 Desde consola (Windows / macOS / Linux)
+
+Navegar al folder del proyecto:
+
+```bash
+cd "C:\Users\TU_USUARIO\Desktop\Proyecto Programacion"
 
