@@ -123,7 +123,7 @@ java Main
 
 La ventana gráfica de The Sandwich Guy se abrirá automáticamente.
 
-💾 Guardar y Cargar Partidas (XML)
+## 💾 Guardar y Cargar Partidas (XML)
 
 El juego permite:
 
