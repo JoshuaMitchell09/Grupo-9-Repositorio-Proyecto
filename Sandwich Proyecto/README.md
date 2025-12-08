@@ -1,263 +1,190 @@
-🃏 The Sandwich Guy — Proyecto Final SC-304 (Estructuras de Datos)
-Descripción General
+# 🃏 Proyecto Final – The Sandwich Guy  
+### Curso: Estructuras de Datos (SC-304)  
+### III Cuatrimestre 2025  
+### Profesor: Luis Andrés Rojas Matey
 
-Este proyecto implementa el juego The Sandwich Guy, un juego de cartas para un solo jugador, cuyo objetivo es formar “sándwiches” con combinaciones válidas de tres cartas.
-El programa fue desarrollado conforme a todos los requerimientos establecidos en el enunciado oficial del curso SC-304 Estructuras de Datos, incluyendo el uso obligatorio de estructuras como: lista doble, pila, cola, lista circular y árbol binario.
+---
 
-El sistema incorpora:
+## 👥 Integrantes del Grupo
+- **Joshua Mitchell Navarro** – Carné: FH22012006 – GitHub: *tu_usuario* – Email: *tu_correo*
 
-Interfaz gráfica de escritorio (Java Swing).
+> *Los integrantes listados aquí serán los únicos considerados para la calificación, según la rúbrica del curso.*
 
-Lógica completa del juego.
+---
 
-Evaluación de sándwiches con sus respectivas reglas.
+## 📝 Descripción General del Proyecto
+**The Sandwich Guy** es un juego de naipes para un solo jugador que utiliza una baraja estándar de 52 cartas.  
+El objetivo del proyecto es aplicar los conocimientos del curso SC-304 mediante la creación de una **aplicación de escritorio en Java (JDK 21)** que implemente:
 
-Permutaciones de tripletas utilizando un árbol binario.
+- Estructuras de datos avanzadas  
+- Manipulación de objetos y referencias  
+- Lógica de evaluación de sándwiches  
+- Persistencia de información en XML  
+- Interfaz gráfica con Swing  
 
-Persistencia mediante archivos XML usando el módulo java.xml.
+La aplicación permite:
 
-Control total de partidas guardadas y cargadas.
+- Crear una partida nueva  
+- Barajar las cartas y generar el Mazo  
+- Mostrar Caja, Mazo, Mano y Pozo  
+- Seleccionar y evaluar tripletas  
+- Ver las 6 permutaciones posibles de la tripleta  
+- Clasificar el tipo de sándwich (4, 3, 2 o 0 cartas del mazo)  
+- Descartar y robar cartas automáticamente  
+- Validar si la Mano posee un sándwich válido  
+- Guardar y cargar partidas mediante XML  
+- Mostrar victoria o derrota según reglas del juego  
 
-El enfoque del desarrollo fue garantizar claridad estructural, modularidad y consistencia lógica.
+---
 
-Integrantes
-Nombre	Carné	GitHub	Correo
-Joshua Mitchell Navarro	FH22012006	USUARIO_GITHUB	TU_CORREO
-Objetivos del Proyecto
+## 🧱 Estructuras de Datos Utilizadas
 
-Aplicar estructuras de datos avanzadas a un caso práctico real.
+| Componente | Estructura de Datos | Implementación |
+|-----------|----------------------|----------------|
+| **Caja** | Lista doble | `LinkedList<Carta>` |
+| **Mazo** | Pila (Stack) | `ArrayDeque.push()` / `pop()` |
+| **Mano** | Lista circular | `ArrayList` con índices modulares |
+| **Pozo** | Cola (Queue) | `ArrayDeque.addLast()` |
+| **Permutaciones** | Árbol binario | `ArbolTripletas` (BST propio) |
+| **Evaluación de sándwich** | Algoritmo propio | Distancia circular (K → A) |
 
-Desarrollar una aplicación gráfica funcional utilizando Java SE 21.
+Cada carta se **instancia una sola vez por partida**, cumpliendo el mandato del enunciado.
 
-Implementar manejo de archivos para guardar y cargar estados de partida.
+---
 
-Manejar colecciones de datos mediante referencias, evitando duplicación de objetos.
+## 🖥️ Tecnologías, IDEs y Versiones
+- **Lenguaje:** Java SE 21  
+- **Librerías:** Swing, java.xml  
+- **IDEs utilizados:**  
+  - IntelliJ IDEA  
+  - Visual Studio Code  
+- **No se utilizan dependencias externas.**
 
-Implementar un sistema de reglas que permita validar combinaciones de cartas.
+---
 
-Desarrollar un software robusto, legible y completamente funcional.
+## 📂 Estructura del Proyecto
 
-Estructuras de Datos Implementadas y Justificación
-1. Carta (Clase Propia)
+Proyecto/
+│ Main.java
+│ VentanaPrincipal.java
+│ Juego.java
+│ Carta.java
+│ Palo.java
+│ Valor.java
+│ Caja.java
+│ Mazo.java
+│ Mano.java
+│ Pozo.java
+│ SandwichEvaluator.java
+│ ResultadoPermutacion.java
+│ NodoTripleta.java
+│ ArbolTripletas.java
+│ PersistenciaXML.java
+│ README.md
 
-Representa cada una de las 52 cartas de la baraja inglesa.
-Incluye:
+yaml
 
-Valor (A, 2–10, J, Q, K)
+> No se usan *packages* para facilitar la compilación desde consola.
 
-Palo (♥, ♦, ♠, ♣)
+---
 
-Color según el palo
+## ⚙️ Instalación
+1. Instalar Java **JDK 21** (Oracle u OpenJDK).  
+2. Descargar o clonar este repositorio.  
+3. Asegurar que todos los archivos `.java` estén en la misma carpeta.
 
-Métodos de comparación y representación textual
+---
 
-2. Caja (Lista doble — Doubly Linked List)
+## 🔧 Compilación
 
-Se utiliza para almacenar las 52 cartas al iniciar una partida.
-Permite:
+### 🔹 Desde Consola (CMD / Terminal)
 
-Recorrer hacia adelante y hacia atrás.
+Navegar al proyecto:
 
-Extraer cartas para transferirlas al Mazo.
+```bash
+cd "C:\Users\TU_USUARIO\Desktop\Proyecto"
+Compilar:
 
-Visualización ordenada al comenzar.
+bash
+Copy code
+javac *.java
+▶️ Ejecución
+bash
+Copy code
+java Main
+La interfaz gráfica de The Sandwich Guy se abrirá automáticamente.
 
-Justificación: El enunciado exige explícitamente una lista doble para la Caja.
+💾 Guardar y Cargar Partidas (XML)
+El juego permite:
 
-3. Mazo (Pila — Stack)
+Guardar el estado actual (Caja, Mazo, Mano, Pozo, Estado) en archivo .xml.
 
-Estructura tipo LIFO que contiene las cartas barajadas boca abajo.
-Operaciones:
+Cargar una partida previamente guardada.
 
-push(carta) al barajar
+Continuar la partida si no ha finalizado.
 
-pop() al tomar cartas
+Mostrar si la partida cargada estaba ganada, perdida o en progreso.
 
-Tamaño dinamico
-
-Justificación: Simula perfectamente la acción de tomar cartas de un mazo físico.
-
-4. Mano (Lista circular)
-
-Contiene hasta 8 cartas boca arriba.
-Característica principal:
-
-Navegación modular (índice % tamaño)
-
-Permite mantener un orden circular de las cartas
-
-Facilita el manejo de índices sin errores
-
-Justificación: El enunciado exige una lista circular para la Mano.
-
-5. Pozo (Cola — Queue)
-
-Cuando una tripleta se descarta, las cartas se insertan en el Pozo boca abajo, siguiendo el orden FIFO.
-
-Justificación: La cola se ajusta al comportamiento de un pozo de descarte, donde solo interesa el orden de llegada.
-
-6. Árbol Binario para Permutaciones
-
-Cada tripleta seleccionada genera 6 permutaciones, y cada una:
-
-Se inserta en un nodo del árbol.
-
-Almacena la cantidad de cartas permitidas para robar.
-
-Se recorre en orden para presentar los resultados al usuario.
-
-Justificación: El enunciado solicita utilizar una estructura de búsqueda (árbol binario) para manejar las permutaciones.
-
-Reglas del Juego Implementadas
-Evaluación de Sándwich
-
+🧠 Lógica Principal del Juego
+✔ Reglas de Sándwich
 Una tripleta es válida si:
 
-La carta central está entre las otras dos según su valor en un ciclo (K → A).
+La carta central está exactamente “a la misma distancia circular” entre las otras dos.
 
-Las tres cartas tienen el mismo valor.
+Las tres cartas pueden dar vuelta (K → A → 2).
 
-Cantidad de cartas que se pueden robar del Mazo
-Condición	Cantidad
-Las tres cartas del mismo palo	4
-Las tres cartas del mismo color	3
-Las tres cartas de distinto color	2
-No válida	0
-Estados de Partida
+Las tres cartas pueden ser del mismo valor.
 
-EN_PROGRESO — Mientras existan movimientos válidos.
+✔ Cantidad de cartas que se pueden tomar del mazo:
+Tipo de sándwich	Cartas del mazo
+Mismo palo	4
+Mismo color	3
+Diferente color	2
+No válido	0
 
-GANADA — Cuando el mazo queda vacío y no quedan cartas en mano.
+🧪 Validación de la Mano
+Al presionar Validar Mano, el programa revisa TODAS las combinaciones posibles de 3 cartas:
 
-PERDIDA — Cuando no existe ninguna combinación válida en la Mano.
+Si existe al menos un sándwich válido → la partida continúa.
 
-Flujo de Juego
+Si no existe ninguno → la partida se marca como PERDIDA.
 
-Se inicia una partida nueva → Las 52 cartas están en la Caja.
+🏆 Condiciones de Finalización
+✔ Victoria:
+Cuando el Mazo queda vacío y ya no hay cartas que robar.
 
-Al presionar Barajar, las cartas pasan al Mazo en orden aleatorio.
+✔ Derrota:
+Cuando la Mano no contiene ningún sándwich posible.
 
-Se reparten automáticamente hasta 8 cartas a la Mano.
+El estado se muestra en pantalla en tiempo real.
 
-El usuario selecciona 3 cartas y el sistema muestra las 6 permutaciones:
+📚 Referencias
+Documentación de Java SE 21
+https://docs.oracle.com/en/java/javase/21/
 
-Con su respectiva cantidad de cartas a robar.
+API de Swing
+https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html
 
-Si decide aplicar la mejor permutación:
+Uso de ArrayDeque y colecciones
+https://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html
 
-Las cartas se envían al Pozo.
+Parser XML (DOM – java.xml)
+https://docs.oracle.com/javase/tutorial/jaxp/dom/
 
-Se roban nuevas cartas del Mazo según la regla correspondiente.
+✔ Estado Final del Proyecto
+Este proyecto cumple con:
 
-Se verifica automáticamente si el juego termina.
+Todas las estructuras solicitadas
 
-El usuario puede Guardar o Cargar en cualquier momento.
+Todas las funcionalidades del enunciado
 
-Persistencia con XML
+Reglas del juego implementadas correctamente
 
-El módulo java.xml se usa para almacenar:
+Interfaz gráfica funcional
 
-Todas las cartas de cada estructura (Caja, Mazo, Mano, Pozo)
+Guardado y carga en XML
 
-El estado de la partida
+Código organizado y documentado
 
-El orden exacto de las cartas
+Proyecto completamente listo para evaluación final
 
-El archivo XML permite retomar la partida en cualquier momento.
-
-Interfaz Gráfica
-
-La interfaz fue desarrollada con Swing y contiene:
-
-Panel de control con botones:
-
-Nueva Partida
-
-Barajar
-
-Ordenar
-
-Validar
-
-Guardar
-
-Cargar
-
-Ver Mazo
-
-Ver Pozo
-
-Visualización de:
-
-Caja
-
-Mazo (oculto)
-
-Pozo (oculto)
-
-Mano (hasta 8 cartas seleccionables)
-
-Los paneles se actualizan dinámicamente con cada acción.
-
-Estructura del Proyecto
-/src
- ├── Main.java
- ├── VentanaPrincipal.java
- ├── Juego.java
- ├── Carta.java
- ├── Valor.java
- ├── Palo.java
- ├── Caja.java
- ├── Mazo.java
- ├── Mano.java
- ├── Pozo.java
- ├── ResultadoPermutacion.java
- ├── ArbolTripletas.java
- ├── NodoTripleta.java
- ├── SandwichEvaluator.java
- ├── PersistenciaXML.java
-
-Instrucciones de Instalación, Compilación y Ejecución
-1. Requisitos
-
-JDK 21 instalado.
-
-Variables de entorno configuradas.
-
-2. Ubicación del proyecto
-
-Colocar todos los archivos .java en una sola carpeta.
-
-3. Compilación
-
-En CMD:
-
-cd "C:\Users\joshu\OneDrive\Desktop\PROYECTO PROGRAMACION 2"
-del *.class
-javac *.java
-
-4. Ejecución
-java Main
-
-Pruebas realizadas
-
-Validación de sándwiches en diferentes combinaciones.
-
-Barajado aleatorio consistente.
-
-Carga y guardado de XML verificando integridad.
-
-Ordenamiento de la Mano.
-
-Detección correcta de partida ganada y perdida.
-
-Navegación estable en la interfaz gráfica.
-
-Estado Final del Proyecto
-
-✔ 100% funcional
-✔ Cumple todas las especificaciones del enunciado
-✔ Estructuras de datos implementadas correctamente
-✔ Interfaz gráfica intuitiva
-✔ Persistencia XML estable
-✔ Código organizado, modular y legible
