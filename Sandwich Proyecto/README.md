@@ -114,77 +114,85 @@ Copy code
 java Main
 La interfaz gráfica de The Sandwich Guy se abrirá automáticamente.
 
-💾 Guardar y Cargar Partidas (XML)
+## 💾 Guardar y Cargar Partidas (XML)
+
 El juego permite:
 
-Guardar el estado actual (Caja, Mazo, Mano, Pozo, Estado) en archivo .xml.
+- Guardar el estado actual (**Caja, Mazo, Mano, Pozo y Estado**) en un archivo `.xml`.  
+- Cargar una partida previamente guardada.  
+- Continuar la partida si aún no ha finalizado.  
+- Mostrar si la partida cargada estaba **ganada**, **perdida** o **en progreso**.  
 
-Cargar una partida previamente guardada.
+---
 
-Continuar la partida si no ha finalizado.
+## 🧠 Lógica Principal del Juego
 
-Mostrar si la partida cargada estaba ganada, perdida o en progreso.
+### ✔ Reglas de Sándwich
 
-🧠 Lógica Principal del Juego
-✔ Reglas de Sándwich
 Una tripleta es válida si:
 
-La carta central está exactamente “a la misma distancia circular” entre las otras dos.
+- La carta central está exactamente a la **misma distancia circular** entre las otras dos.  
+- Se permite la vuelta circular (**K → A → 2**).  
+- Las tres cartas pueden ser del **mismo valor**.  
 
-Las tres cartas pueden dar vuelta (K → A → 2).
+---
 
-Las tres cartas pueden ser del mismo valor.
+### ✔ Cantidad de cartas que se pueden tomar del mazo
 
-✔ Cantidad de cartas que se pueden tomar del mazo:
-Tipo de sándwich	Cartas del mazo
-Mismo palo	4
-Mismo color	3
-Diferente color	2
-No válido	0
+| Tipo de sándwich | Cartas del mazo |
+|------------------|-----------------|
+| Mismo palo       | 4 |
+| Mismo color      | 3 |
+| Diferente color  | 2 |
+| No válido        | 0 |
 
-🧪 Validación de la Mano
-Al presionar Validar Mano, el programa revisa TODAS las combinaciones posibles de 3 cartas:
+---
 
-Si existe al menos un sándwich válido → la partida continúa.
+## 🧪 Validación de la Mano
 
-Si no existe ninguno → la partida se marca como PERDIDA.
+Al presionar **Validar Mano**, el programa revisa **todas** las combinaciones posibles de 3 cartas:
 
-🏆 Condiciones de Finalización
-✔ Victoria:
-Cuando el Mazo queda vacío y ya no hay cartas que robar.
+- Si existe al menos un sándwich válido → la partida continúa.  
+- Si no existe ninguno → la partida se marca como **PERDIDA**.  
 
-✔ Derrota:
-Cuando la Mano no contiene ningún sándwich posible.
+---
 
-El estado se muestra en pantalla en tiempo real.
+## 🏆 Condiciones de Finalización
 
-📚 Referencias
-Documentación de Java SE 21
-https://docs.oracle.com/en/java/javase/21/
+### ✔ Victoria  
+La partida se gana cuando el Mazo queda vacío y no hay más cartas que robar.
 
-API de Swing
-https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html
+### ✔ Derrota  
+La partida se pierde cuando la Mano no contiene **ningún sándwich posible**.
 
-Uso de ArrayDeque y colecciones
-https://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html
+El estado se actualiza y se muestra en pantalla en tiempo real.
 
-Parser XML (DOM – java.xml)
-https://docs.oracle.com/javase/tutorial/jaxp/dom/
+---
 
-✔ Estado Final del Proyecto
+## 📚 Referencias
+
+- **Documentación de Java SE 21:**  
+  https://docs.oracle.com/en/java/javase/21/
+
+- **API de Swing:**  
+  https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html
+
+- **Uso de ArrayDeque y Colecciones:**  
+  https://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html
+
+- **Parser XML (DOM – java.xml):**  
+  https://docs.oracle.com/javase/tutorial/jaxp/dom/
+
+---
+
+## ✔ Estado Final del Proyecto
+
 Este proyecto cumple con:
 
-Todas las estructuras solicitadas
-
-Todas las funcionalidades del enunciado
-
-Reglas del juego implementadas correctamente
-
-Interfaz gráfica funcional
-
-Guardado y carga en XML
-
-Código organizado y documentado
-
-Proyecto completamente listo para evaluación final
-
+- Todas las estructuras de datos solicitadas  
+- Todas las funcionalidades del enunciado  
+- Reglas del juego implementadas correctamente  
+- Interfaz gráfica 100% funcional  
+- Guardado y carga mediante XML  
+- Código organizado, modular y documentado  
+- Proyecto completamente listo para evaluación final  
