@@ -6,7 +6,7 @@
 ---
 
 ## 👥 Integrantes del Grupo
-- **Joshua Mitchell Navarro** – Carné: FH22012006 – GitHub: *tu_usuario* – Email: *tu_correo*
+- **Joshua Mitchell Navarro** – Carné: FH22012006 – Email: jmitchell20098@ufide.ac.cr
 
 > *Los integrantes listados aquí serán los únicos considerados para la calificación, según la rúbrica del curso.*
 
